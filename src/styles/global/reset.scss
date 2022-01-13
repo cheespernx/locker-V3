@@ -1,0 +1,17 @@
+/* works on every element except for content elements */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {    
+  all: unset;    
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {    
+    box-sizing: border-box;
+}
+
+/* For images to not be able to exceed their container */
+img {    
+  max-width: 100%;
+}

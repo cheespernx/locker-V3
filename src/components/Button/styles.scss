@@ -1,0 +1,46 @@
+//Utilities
+@import '../../styles/utilities/variables.scss';
+
+button {
+  background: none;
+  border-radius: 50px;
+
+  width: 100%;
+  padding: 0.5rem 0;
+  height: 50px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight:600;
+
+  &.primary {
+    background-color: $primary-color;
+    color: #efefef;
+    transition: all 0.2s ease;
+    &:hover {
+      background: darken($primary-color, 8%);
+    }
+  }
+  &.outlined {
+    background: #fff;
+    border: 1px solid $border-color;
+    color: $main-text;
+  }
+  &.danger {
+    background: #e43f39;
+    border: 0;
+    color: #efefef;
+  }
+  // &:not(:disabled):hover {
+  //   filter: brightness(0.8);
+  // }
+  &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+  }
+}

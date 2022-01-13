@@ -1,0 +1,43 @@
+//Utilities
+@import '../../styles/utilities/variables.scss';
+
+
+.input-group {
+  input {
+    height: 50px;
+
+    background: #fff;
+
+    border: 1px solid $border-color;
+    border-radius: 50px;
+
+    padding: 0 16px;
+    width: 100%;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    margin-top: 0.3rem;
+
+    &::placeholder {
+      color: $placeholder-color;
+      font-size: 0.9rem;
+    }
+  }
+  
+  label {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .required {
+    color: #e43f39;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-left: 0.1rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}

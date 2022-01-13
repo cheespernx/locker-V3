@@ -18,12 +18,14 @@ button {
   font-size: 1rem;
   font-weight:600;
 
+  transition: all 0.2s ease;
+
   &.primary {
     background-color: $primary-color;
     color: #efefef;
-    transition: all 0.2s ease;
+    
     &:hover {
-      background: darken($primary-color, 8%);
+      background: darken($primary-color, 25%);
     }
   }
   &.outlined {
@@ -42,5 +44,20 @@ button {
   &:disabled {
       opacity: 0.6;
       cursor: not-allowed;
+  }
+
+  &.transparent {
+    background-color: transparent;
+    color: $main-text;
+  }
+
+  &.hover-text-danger:hover {
+    color: #e43f39;
+  }
+
+  &.small {
+    width: 50%;
+    height: 25px;
+    font-size: 14px;
   }
 }

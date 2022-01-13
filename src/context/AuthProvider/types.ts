@@ -1,11 +1,13 @@
+import { firebase } from '../../services/firebase';
 export interface IUser {
-  email?: string;
-  token?: string;
+  email?: string | null;
+  uid?: string | null;
+  name?: string | null;
 }
 
 export interface IContext extends IUser{
-  authenticate: (email: string, password: string) => Promise<void>;
-  signInWithGoogle: (email: string, password: string) => Promise<void>;
+  fullUserInfo: firebase.auth.UserCredential | null | undefined;
+  signInWithEmail: (email: string, password: string) => Promise<void | unknown>;
   logout: () => void;
 }
 

@@ -4,11 +4,14 @@ import logo from '../assets/images/logo.svg'
 
 import '../styles/pages/login.scss';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 import InputGroup from '../components/Input';
 import { Button } from '../components/Button';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 
 const auth = getAuth();
 
@@ -23,17 +26,19 @@ export default function Signup() {
   async function handleCreateAccount(){
 
     createUserWithEmailAndPassword(auth, userEmail, userPassword)
-    .then(() => {
-      alert('Account created successfully!')
-      navigate(`/login`, {replace: true})
+    .then(userCredential => {
+      sendEmailVerification(userCredential.user).then(() => {
+        toast.success('Account created successfully! Verify your inbox to activate your account.');
+        setTimeout(() => navigate(`/login`, {replace: true}), 5000)
+      })
     })
     .catch((error) => {
       switch (error.code){
         case 'auth/email-already-in-use':
-          alert('Email already in use!');
+          toast.error('Email already in use!')
           break;
         case 'auth/network-request-failed':
-          alert('Error on the network request! Please try again later.');
+          toast.error('Error on the network request! Please try again later.')
           break;
       }
     });
@@ -41,7 +46,7 @@ export default function Signup() {
 
   function verifyPass (passRepeat: string) {
 
-    if(passRepeat === userPassword){
+    if(passRepeat === userPassword && userPassword.length > 8) {
       setBtnDisable(false);
     } else {
       setBtnDisable(true);
@@ -63,6 +68,18 @@ export default function Signup() {
           <InputGroup label="Repeat your password" placeholder="Min. 8 character" id="userPasswordRepeat" isLabelled isRequired type="password" onChange={(event) => verifyPass(event.currentTarget.value) }/>
           
           <Button className="primary mb-1" id="btnCreateAccount" isPrimary onClick={handleCreateAccount} disabled={btnDisable}>Create account</Button>
+          <ToastContainer 
+              position="top-center"
+              theme="colored"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover 
+            />
           <div className="align-center">
             <Link to="/login" className="link">Or make login</Link>
           </div>

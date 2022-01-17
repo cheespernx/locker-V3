@@ -3,7 +3,7 @@
 
 button {
   background: none;
-  border-radius: 50px;
+  border-radius: 50px !important;
 
   width: 100%;
   padding: 0.5rem 0;
@@ -15,7 +15,7 @@ button {
 
   cursor: pointer;
 
-  font-size: 1rem;
+  font-size: 0.9rem !important;
   font-weight:600;
 
   transition: all 0.2s ease;
@@ -32,6 +32,9 @@ button {
     background: #fff;
     border: 1px solid $border-color;
     color: $main-text;
+    &:hover {
+      background: darken(#fff, 5%);
+    }
   }
   &.danger {
     background: #e43f39;

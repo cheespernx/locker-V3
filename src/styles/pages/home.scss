@@ -1,7 +1,48 @@
-.main-content {
+//Utilities
+@import '../../styles/utilities/variables.scss';
+
+.home-content {
   width: 100vw;
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+
+  .account-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    
+    .account-list-header {
+      width: 100%;
+
+      .col-md-2 {
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+          width: 30%;
+        }
+      }
+  
+      @media screen and (max-width: 475px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+  
+        .col-md {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+        }
+        
+        h3 {
+          font-size: 16px;
+          margin-bottom: 0 !important;
+        }
+      }
+  
+    }
+  }
+
 }

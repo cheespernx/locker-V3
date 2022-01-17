@@ -7,6 +7,9 @@ import InputGroup from '../components/Input';
 import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { useState } from 'react';
 
@@ -19,11 +22,11 @@ export default function Recovery(this: any) {
     const auth = getAuth();
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        alert('Check your inbox and follow the instructions!')
+        toast.success('Check your inbox and follow the instructions!')
       })
       .catch((error) => {
         const errorMessage = error.message;
-        alert(errorMessage);
+        toast.success(errorMessage);
       });
   }
 
@@ -38,7 +41,18 @@ export default function Recovery(this: any) {
           <InputGroup label="Email" id="emailRecovery" onChange={(event) => setRecoveryEmail( event.target.value )} value={recoveryEmail} placeholder="mail@website.com" isLabelled isRequired type="email"/>
 
           <Button className="primary" isPrimary onClick={ () => handleRecoveryPassword(recoveryEmail) }>Recovery</Button>
-
+          <ToastContainer 
+              position="top-center"
+              theme="colored"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover 
+            />
           <div className="align-center mt-1">
             <Link to="/login" className="link">Or make login</Link>
           </div>

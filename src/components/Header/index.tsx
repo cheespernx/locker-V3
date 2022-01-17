@@ -30,7 +30,7 @@ export default function Header () {
       <div className="nav-container">
         <div className="user-container">
           <div className="dropdown">
-            <Button className="dropbtn"><span className="user-connected">{user.name ? user.name : user.email}</span></Button>
+            <Button className="dropbtn"><span className="user-connected">{user.email}</span></Button>
             <div className="dropdown-content">
               <Link to="/profile">Profile</Link>
               <Divider />

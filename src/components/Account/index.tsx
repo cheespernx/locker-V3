@@ -21,7 +21,7 @@ export default function Account (props: AccountProps) {
   }
 
   return (
-    <div className="row account-item" key={props.key} onClick={() => getAccountInfo(props.key) }>
+    <div className="account-item" key={props.key} onClick={() => getAccountInfo(props.key) }>
       <div className="right-column">
         <FaGoogle className="account-icon"/>
         <div className="account-info-row">

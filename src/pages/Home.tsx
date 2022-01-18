@@ -37,7 +37,7 @@ export default function Home() {
           <div className={menuView ? 'side-menu show' : 'side-menu hide'} >
             <div className="left-side-menu" onClick={() => setMenuView(!menuView)}></div>
             <div className="right-menu">
-              <div className="title-row mb-5">
+              <div className="title-row mb-1">
                 <h3 className="page-title">Add new account</h3>
                 <button className="button-close-menu" onClick={() => setMenuView(!menuView)}><span>{<GrClose/>}</span></button>
               </div>
@@ -45,7 +45,7 @@ export default function Home() {
               <InputGroup label="Username" placeholder="yourusername" isLabelled type="text" />
               <InputGroup label="Password" placeholder="Your password" isLabelled isRequired type="password" />
               <InputGroup label="Link" placeholder="Link for the website" isLabelled type="text" />
-              <div className="select-group mb-4">
+              <div className="select-group mb-3">
                 <label className="label-select">Select the account type</label>
                 <select className="form-select">
                   <option hidden>Select one option</option>

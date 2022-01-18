@@ -30,12 +30,19 @@
 
     .left-column {
       width: 80px;
+      @media screen and (max-width: 475px){
+        width: 90px;
+      }
     }
 
     .account-icon {
       font-size: 24px;
       width: 50px;
       color: $primary-color;
+
+      @media screen and (max-width: 475px){
+        width: 30px;
+      }
     }
 
     .account-info-row {
@@ -46,10 +53,18 @@
       .account-name {
         font-size: 18px;
         font-weight: 500;
+
+        @media screen and (max-width: 475px){
+          font-size: 14px;
+        }
       }
       .account-site {
         font-size: 14px;
         font-weight: 200;
+
+        @media screen and (max-width: 475px){
+          font-size: 12px;
+        }
       }
     }
 

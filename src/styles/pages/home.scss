@@ -35,6 +35,11 @@
           align-items: center;
           height: 100%;
         }
+        .col-md-2 {
+          button {
+            padding: 0 1rem;
+          }
+        }
         
         h3 {
           font-size: 16px;
@@ -43,6 +48,140 @@
       }
   
     }
+
+    .account-list {
+      width: 100%;
+    }
+    
+    .account-menu-container {
+      
+      .side-menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+      
+        display: none;
+        align-items: center;
+      
+        width: 100%;
+        height: 100%;
+      
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease;
+        transition: all .5s ease;
+  
+        &.show {
+          display: flex;
+        }
+  
+        &.hide {
+          display: none;
+        }
+
+        .left-side-menu {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          display: flex;
+
+          width: 50%;
+          height: 100%;
+          
+          background-color: rgba(0, 0, 0, 0.8);
+          cursor: pointer;
+
+          @media screen and (max-width: 475px) {
+            display: none;
+          }
+        }
+      
+        .right-menu {
+          position: absolute;
+          top: 0;
+          right: 0;
+      
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+      
+          padding: 2rem 10rem;
+      
+          width: 50%;
+          height: 100%;
+      
+          background-color: #fff;
+  
+          .title-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+  
+            width: 100%;
+  
+            .button-close-menu {
+              color: $main-text;
+              font-size: 16px;
+              width: 10%;
+            }
+
+            @media screen and (max-width: 475px) {
+              margin-bottom: 1rem !important;
+            }
+          }
+          @media screen and (max-width: 320px) {
+            height: 100%;
+            padding: 3rem 0;
+          }
+          
+
+          .label-select {
+              font-size: 0.9rem;
+              font-weight: 500;
+          }
+
+          .form-select {
+            height: 50px;
+
+            background: #fff;
+
+            border: 1px solid $border-color;
+            border-radius: 50px !important;
+
+            padding: 14px 16px;
+            width: 100%;
+
+            font-size: 0.9rem;
+            font-weight: 500;
+
+            margin-top: 0.3rem;
+
+
+            &::placeholder {
+              color: $placeholder-color;
+              font-size: 0.9rem;
+            }
+          }
+
+          @media screen and (max-width: 475px) {
+            width: 100%;
+            padding: 1rem 1.5rem;
+          }
+
+          @media screen and (max-width: 1024px) {
+            padding: 1rem 1.5rem;
+          }
+        }
+
+        @media screen and (max-width: 320px){
+          height: 120%;
+        }
+      
+      }
+    }
+
   }
 
 }
